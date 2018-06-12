@@ -13,7 +13,9 @@ export default class Footer extends Component {
   render () {
     return (
 			<FooterWrap>
-				<Link href="/"><LinkHolder>Back to home</LinkHolder></Link>
+				<Link href="/">
+					<LinkHolder>{"maincode. " + new Date().getFullYear()}</LinkHolder>
+				</Link>
 			</FooterWrap>
     )
   }
@@ -21,17 +23,21 @@ export default class Footer extends Component {
 
 const FooterWrap = styled.footer`
 	text-align: center;
+	background-color: #141414;
+	${'' /* background-color: #ffffff; */}
 `
 const LinkHolder = styled.a`
 	display: inline-block;
 	text-decoration: none;
-	color: #444444;
+	color: #9D9D9D;
 	cursor: pointer;
 	font-size: 16px;
-	font-family: "Arial", sans-serif;
+	font-family: "Circular", sans-serif;
 	line-height: 60px;
-	padding: 0 20px;
+	transition: 0.3s all cubic-bezier(0.4, 0.0, 0.2, 1);
+	padding: 10px;
 	&:hover {
-		color: #111111;
+		color: #ffffff;
+		${'' /* color: #141414; */}
 	}
 `

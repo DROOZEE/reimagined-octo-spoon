@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'maincode';
+  src:  url('fonts/maincode.eot?rbeps4');
+  src:  url('fonts/maincode.eot?rbeps4#iefix') format('embedded-opentype'),
+    url('fonts/maincode.ttf?rbeps4') format('truetype'),
+    url('fonts/maincode.woff?rbeps4') format('woff'),
+    url('fonts/maincode.svg?rbeps4#maincode') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="maincode-"], [class*=" maincode-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'maincode' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.maincode-review:before {
+  content: "\e90b";
+}
+.maincode-arrow-right-circle:before {
+  content: "\e90c";
+}
+.maincode-corner-up-left:before {
+  content: "\e900";
+}
+.maincode-paperclip:before {
+  content: "\e919";
+}
+.maincode-arrow-right-long:before {
+  content: "\e906";
+}
+.maincode-close:before {
+  content: "\e908";
+}
+.maincode-plus:before {
+  content: "\e901";
+}
+.maincode-minus:before {
+  content: "\e902";
+}
+.maincode-play:before {
+  content: "\e903";
+}
+.maincode-arrow-down:before {
+  content: "\e904";
+}
+.maincode-behance:before {
+  content: "\e905";
+}
+.maincode-facebook:before {
+  content: "\e907";
+}
+.maincode-instagram:before {
+  content: "\e909";
+}
+.maincode-upwork:before {
+  content: "\e90a";
+}

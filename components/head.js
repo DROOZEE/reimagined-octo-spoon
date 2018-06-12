@@ -25,6 +25,11 @@ const Head = (props) => (
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 		<link rel='stylesheet' type='text/css' href='/static/nprogress.css' />
+	
+		<link rel='stylesheet' type='text/css' href='/static/fonts/maincode/style.css' />
+		<link rel='stylesheet' type='text/css' href='/static/fonts/AvantGardeLT/style.css' />
+		<link rel='stylesheet' type='text/css' href='/static/fonts/Circular/style.css' />
+		<link rel='stylesheet' type='text/css' href='/static/fonts/CircularMed/style.css' />
   </NextHead>
 )
 

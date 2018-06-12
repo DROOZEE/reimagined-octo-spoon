@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'CircularMed';
+  font-style: normal;
+  font-weight: 500;
+  src: url('CircularMed.eot');
+  src: local('CircularMed'), local('CircularMed'),
+       url('CircularMed.eot') format('embedded-opentype'),
+       url('CircularMed.woff') format('woff'),
+       url('CircularMed.ttf') format('truetype'),
+       url('CircularMed.svg') format('svg');
+}
