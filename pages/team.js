@@ -8,10 +8,6 @@ import styled from 'styled-components'
 import {connect} from 'react-redux'
 
 class Team extends Component {
-	componentDidMount () {
-		
-  }
-
   render () {
     return (
 		  <Fragment>

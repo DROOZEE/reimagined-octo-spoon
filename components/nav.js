@@ -60,7 +60,7 @@ const List = styled.ul`
 	position: relative;
 `
 const ListItem = styled.li`
-	display: inline-block;
+	display: block;
 `
 const LinkHolder = styled.a`
 	position: relative;
@@ -74,7 +74,8 @@ const LinkHolder = styled.a`
 	padding: 0px 25px;
 	transition: 0.3s all cubic-bezier(0.4, 0.0, 0.2, 1);
 	cursor: pointer;
-	&::before {
+	text-align: center;
+	${'' /* &::before {
 		content: '';
 		position: absolute;
 		top: 50%;
@@ -85,7 +86,7 @@ const LinkHolder = styled.a`
 		height: 1px;
 		background-color: #9D9D9D;
 		transition: 0.3s all cubic-bezier(0.4, 0.0, 0.2, 1);
-	}
+	} */}
 	&:hover {
 		color: #ffffff;
 		${'' /* color: #141414; */}
@@ -106,5 +107,6 @@ const LinkHolder = styled.a`
 			${'' /* background-color: #141414; */}
 			transform: translate(-50%, 100%) scaleX(1);
 			transition: 0.3s all cubic-bezier(0.4, 0.0, 0.2, 1);
+		}
 	}
 `

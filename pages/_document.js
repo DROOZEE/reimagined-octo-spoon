@@ -62,11 +62,7 @@ injectGlobal`
 	a, a:active, a:visited, a:focus {
 		text-decoration: none;
 	}
-
-	button {
-		margin-top: 60px;
-	}
-
+	
 	.main-enter {
 		opacity: 0.01;
 	}

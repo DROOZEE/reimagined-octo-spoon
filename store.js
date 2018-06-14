@@ -1,45 +1,44 @@
+
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
 
 const initialState = {
-	id: 0,
-	data: [
-		{
-			id: 0,
-			name: 'Daniel',
-			job: 'front',
-		},
-		{
-			id: 1,
-			name: 'Alex',
-			job: 'design',
-		},
-		{
-			id: 2,
-			name: 'Paul',
-			job: 'owner',
-		}
-	],
+	// data: [
+	// 	{
+	// 		id: 0,
+	// 		name: 'Daniel',
+	// 		job: 'front',
+	// 	},
+	// 	{
+	// 		id: 1,
+	// 		name: 'Alex',
+	// 		job: 'design',
+	// 	},
+	// 	{
+	// 		id: 2,
+	// 		name: 'Paul',
+	// 		job: 'owner',
+	// 	}
+	// ],
+	openedMenu: false,
 }
 
 export const actionTypes = {
 	LOADDATA: 'LOADDATA',
-	FETCHFROMDATA: 'FETCHFROMDATA',
-	GETINDEX: 'GETINDEX',
+	TOGGLEMENU: 'TOGGLEMENU',
+	CLOSEMENU: 'CLOSEMENU',
 }
 
 // ACTIONS
 export const loadData = () => dispatch => {
   return dispatch({ type: actionTypes.LOADDATA })
 }
-
-export const fetchFromData = () => dispatch => {
-  return dispatch({ type: actionTypes.FETCHFROMDATA })
+export const toggleMenu = () => dispatch => {
+  return dispatch({ type: actionTypes.TOGGLEMENU })
 }
-
-export const getIndex = () => dispatch => {
-  return dispatch({ type: actionTypes.GETINDEX })
+export const closeMenu = () => dispatch => {
+  return dispatch({ type: actionTypes.CLOSEMENU })
 }
 
 
@@ -50,15 +49,15 @@ export const reducer = (state = initialState, action) => {
 			return Object.assign({}, state, {
 				data: initialState.data
 			})
-		case actionTypes.GETINDEX:
+		case actionTypes.TOGGLEMENU:
 			return Object.assign({}, state, {
-				id: initialState.id = 2
+				...state,
+        openedMenu: !state.openedMenu
 			})
-		case actionTypes.FETCHFROMDATA:
+		case actionTypes.CLOSEMENU:
 			return Object.assign({}, state, {
-				fetched: initialState.fetched = initialState.data[initialState.id]
+        openedMenu: false
 			})
-
 
     default: return state
   }

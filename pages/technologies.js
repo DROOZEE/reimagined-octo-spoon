@@ -8,10 +8,6 @@ import styled from 'styled-components'
 import {connect} from 'react-redux'
 
 class Technologies extends Component {
-	componentDidMount () {
-
-  }
-
   render () {
     return (
 		  <Fragment>
