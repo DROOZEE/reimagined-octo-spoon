@@ -5,7 +5,7 @@ import Footer from '../components/footer'
 import Head from '../components/head'
 import styled from 'styled-components'
 
-class Error extends React.Component {
+class Error extends Component {
   static getInitialProps({ res, err }) {
     const statusCode = res ? res.statusCode : err ? err.statusCode : null;
     return { statusCode }
@@ -40,6 +40,7 @@ const ErrorWrap = styled.div`
 `
 const ErrorText = styled.p`
 	padding: 10px;
+	color: #9D9D9D;
 `
 const LinkHolder = styled.a`
 	display: inline-block;
@@ -51,6 +52,6 @@ const LinkHolder = styled.a`
 	transition: 0.3s all cubic-bezier(0.4, 0.0, 0.2, 1);
 	padding: 10px;
 	&:hover {
-		color: #141414;
+		color: #ffffff;
 	}
 `
