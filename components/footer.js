@@ -4,24 +4,24 @@ import styled from 'styled-components'
 
 export default class Footer extends Component {
 	constructor(props) {
-	  super(props);
+		super(props);
 	}
 
-  render () {
-    return (
+	render () {
+		return (
 			<FooterWrap>
 				<Link href="/">
 					<LinkHolder>{"maincode. " + new Date().getFullYear()}</LinkHolder>
 				</Link>
 			</FooterWrap>
-    )
-  }
+		)
+	}
 }
 
 const FooterWrap = styled.footer`
 	text-align: center;
 	background-color: #141414;
-	${'' /* background-color: #ffffff; */}
+	width: 100vw;
 `
 const LinkHolder = styled.a`
 	display: inline-block;
@@ -35,6 +35,5 @@ const LinkHolder = styled.a`
 	padding: 10px;
 	&:hover {
 		color: #ffffff;
-		${'' /* color: #141414; */}
 	}
 `

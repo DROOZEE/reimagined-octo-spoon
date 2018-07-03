@@ -1,33 +1,31 @@
 import React, {Fragment, Component} from 'react'
 import Link from 'next/link'
-import Main from '../components/main'
-import Footer from '../components/footer'
 import Head from '../components/head'
 import styled from 'styled-components'
 
 class Error extends Component {
-  static getInitialProps({ res, err }) {
-    const statusCode = res ? res.statusCode : err ? err.statusCode : null;
-    return { statusCode }
-  }
+	static getInitialProps({ res, err }) {
+		const statusCode = res ? res.statusCode : err ? err.statusCode : null;
+		return { statusCode }
+	}
 
   render() {
-    return (
+		return (
 			<Fragment>
-		    <Head title={`${this.props.statusCode}` + " error"} />
+				<Head title={`${this.props.statusCode}` + " error"} />
 				<ErrorWrap>
 					<ErrorText>
-		        {this.props.statusCode
-		          ? `An error ${this.props.statusCode} occurred on server.`
-		          : 'An error occurred on client.'}
-		      </ErrorText>
+						{this.props.statusCode
+							? `An error ${this.props.statusCode} occurred on server.`
+							: 'An error occurred on client.'}
+					</ErrorText>
 					<Link href="/">
 						<LinkHolder>Back to home.</LinkHolder>
 					</Link>
 				</ErrorWrap>
 			</Fragment>
-    )
-  }
+		)
+	}
 }
 
 export default (Error)

@@ -1,11 +1,12 @@
-import Head from '../components/head'
-import Header from '../components/header'
-import Main from '../components/main'
-import Footer from '../components/footer'
 import React, {Fragment, Component} from "react"
 import styled, {css} from 'styled-components'
+import { CSSTransitionGroup } from 'react-transition-group'
 import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
+
+import Head from '../components/head'
+
+import {connect} from 'react-redux'
 
 class Post extends Component {
 	constructor(props) {
@@ -14,50 +15,58 @@ class Post extends Component {
 
 	static async getInitialProps(context) {
 		const { id } = context.query
-	  const res = await fetch(`https://api.tvmaze.com/shows/${id}`)
-	  const show = await res.json()
+		const res = await fetch(`https://api.tvmaze.com/shows/${id}`)
+		const show = await res.json()
 
-	  return { show }
-  }
+		return { show }
+	}
 
 	render() {
 		return (
 			<Fragment>
-		    <Head title={this.props.show.name} />
-				<Header/>
-				<Main>
-		      <RegularText>{this.props.show.name}</RegularText>
-		      <RegularText text>{this.props.show.summary.replace(/<[/]?p>/g, '').replace(/<[/]?b>/g, '')}</RegularText>
+				<Head title={this.props.show.name} />
+				<Main
+					component="main"
+					transitionName="main"
+					transitionEnterTimeout={500}
+					transitionLeaveTimeout={300}
+					transitionAppear={true}
+					transitionAppearTimeout={500}>
+					<RegularText>{this.props.show.name}</RegularText>
+					<RegularText>{this.props.show.summary.replace(/<[/]?p>/g, '').replace(/<[/]?b>/g, '')}</RegularText>
 					<Img src={this.props.show.image.medium}/>
 
-				  <Link href="/portfolio">
-				    <LinkHolder>Back to portfolio</LinkHolder>
-				  </Link>
+					<Link href="/portfolio">
+						<LinkHolder>Back to portfolio</LinkHolder>
+					</Link>
 				</Main>
-		  	<Footer/>
-		  </Fragment>
+			</Fragment>
 		)
 	}
 }
 
 export default Post
 
-const RegularText = styled.p`
- display: block;
- padding: 0 0;
- max-width: 600px;
- margin: 0 0 20px 0;
- font-family: "Circular", sans-serif;
- font-size: 26px;
- color: #ffffff;
- ${props => props.text && css`
-	 font-size: 16px;
-	 color: #ffffff;
-`}
- &:last-of-type {
-	 margin: 0;
- }
+const Main = styled(CSSTransitionGroup)`
+	padding: 15px 15px 60px 15px;
+	min-height: calc(100vh - 80px);
+	background-color: #141414;
+	width: 100vw;
 `
+
+const RegularText = styled.p`
+	font-family: "Circular", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-size: 16px;
+	line-height: 26px;
+	color: #9D9D9D;
+	display: block;
+
+	max-width: 600px;
+	padding: 0 0 0 0;
+	margin: 0 0 20px 0;
+`
+
 const Img = styled.img`
 	display: block;
 	width: 200px;
@@ -75,6 +84,5 @@ const LinkHolder = styled.a`
 	padding: 10px;
 	&:hover {
 		color: #ffffff;
-		${'' /* color: #141414; */}
 	}
 `

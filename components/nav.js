@@ -1,56 +1,75 @@
-import React from 'react'
+import React, {Component, Children} from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
+import ActiveLink from './activeLink'
 
 import { withRouter } from "next/router"
-import { Children } from "react"
 
-const ActiveLink = withRouter(({ router, children, activeClassName, ...props }) => (
-	<Link {...props}>
-    {React.cloneElement(Children.only(children), {
-      className: router.pathname === props.href ? `active` : null
-    })}
-  </Link>
-));
+import {connect} from 'react-redux'
 
-export default () => (
-	<Nav>
-		<List>
-			<ListItem>
-				<ActiveLink activeClassName="active" prefetch href="/">
-					<LinkHolder>Home</LinkHolder>
-				</ActiveLink>
-			</ListItem>
-			<ListItem>
-				<ActiveLink activeClassName="active" prefetch href="/portfolio">
-					<LinkHolder>Portfolio</LinkHolder>
-				</ActiveLink>
-			</ListItem>
-			<ListItem>
-				<ActiveLink activeClassName="active" prefetch href="/technologies">
-					<LinkHolder>Technologies</LinkHolder>
-				</ActiveLink>
-			</ListItem>
-			<ListItem>
-				<ActiveLink activeClassName="active" prefetch href="/team">
-					<LinkHolder>Our team</LinkHolder>
-				</ActiveLink>
-			</ListItem>
-			<ListItem>
-				<ActiveLink activeClassName="active" prefetch href="/careers">
-					<LinkHolder>Careers</LinkHolder>
-				</ActiveLink>
-			</ListItem>
-			<ListItem>
-				<ActiveLink activeClassName="active" prefetch href="/contact">
-					<LinkHolder>Contact us</LinkHolder>
-				</ActiveLink>
-			</ListItem>
-		</List>
-  </Nav>
-)
+class Nav extends Component {
+	constructor(props) {
+		super(props);
+		this.toggle = this.toggle.bind(this);
+	}
+	toggle() {
+		this.props.onToggleMenu();
+	}
 
-const Nav = styled.nav`
+	render() {
+		return(
+			<Navigation>
+				<List>
+					<ListItem onClick={this.toggle}>
+						<ActiveLink activeClassName="active" prefetch href="/">
+							<LinkHolder>Home</LinkHolder>
+						</ActiveLink>
+					</ListItem>
+					<ListItem onClick={this.toggle}>
+						<ActiveLink activeClassName="active" prefetch href="/portfolio">
+							<LinkHolder>Portfolio</LinkHolder>
+						</ActiveLink>
+					</ListItem>
+					<ListItem onClick={this.toggle}>
+						<ActiveLink activeClassName="active" prefetch href="/technologies">
+							<LinkHolder>Technologies</LinkHolder>
+						</ActiveLink>
+					</ListItem>
+					<ListItem onClick={this.toggle}>
+						<ActiveLink activeClassName="active" prefetch href="/team">
+							<LinkHolder>Our team</LinkHolder>
+						</ActiveLink>
+					</ListItem>
+					<ListItem onClick={this.toggle}>
+						<ActiveLink activeClassName="active" prefetch href="/careers">
+							<LinkHolder>Careers</LinkHolder>
+						</ActiveLink>
+					</ListItem>
+					<ListItem onClick={this.toggle}>
+						<ActiveLink activeClassName="active" prefetch href="/contact">
+							<LinkHolder>Contact us</LinkHolder>
+						</ActiveLink>
+					</ListItem>
+				</List>
+			</Navigation>
+		)
+	}
+}
+
+export default connect(
+	state => ({
+		state
+	}),
+	dispatch => ({
+		onToggleMenu: (data) => {
+			setTimeout(() => {
+				dispatch({type: 'TOGGLEMENU', payload: data});
+			},100)
+		}
+	})
+)(Nav)
+
+const Navigation = styled.nav`
 	display: block;
 `
 const List = styled.ul`
@@ -75,36 +94,20 @@ const LinkHolder = styled.a`
 	transition: 0.3s all cubic-bezier(0.4, 0.0, 0.2, 1);
 	cursor: pointer;
 	text-align: center;
-	${'' /* &::before {
-		content: '';
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, 100%) scaleX(0);
-		transform-origin: 0% 50%;
-		width: calc(100% - 40px);
-		height: 1px;
-		background-color: #9D9D9D;
-		transition: 0.3s all cubic-bezier(0.4, 0.0, 0.2, 1);
-	} */}
 	&:hover {
 		color: #ffffff;
-		${'' /* color: #141414; */}
 		transition: 0.3s all cubic-bezier(0.4, 0.0, 0.2, 1);
 		&::before {
 			background-color: #ffffff;
-			${'' /* background-color: #141414; */}
 			transform: translate(-50%, 100%) scaleX(1);
 			transition: 0.3s all cubic-bezier(0.4, 0.0, 0.2, 1);
 		}
 	}
 	&.active {
 		color: #ffffff;
-		${'' /* color: #141414; */}
 		transition: 0.3s all cubic-bezier(0.4, 0.0, 0.2, 1);
 		&::before {
 			background-color: #ffffff;
-			${'' /* background-color: #141414; */}
 			transform: translate(-50%, 100%) scaleX(1);
 			transition: 0.3s all cubic-bezier(0.4, 0.0, 0.2, 1);
 		}
