@@ -24,7 +24,9 @@ class Post extends Component {
 	render() {
 		return (
 			<Fragment>
-				<Head title={this.props.show.name} />
+				<Head title={this.props.show.name}
+					description={this.props.show.summary.replace(/<[/]?p>/g, '').replace(/<[/]?b>/g, '')}
+				/>
 				<Main
 					component="main"
 					transitionName="main"

@@ -1,7 +1,8 @@
 import React, {Fragment, Component} from "react"
 import styled, {css} from 'styled-components'
 import { CSSTransitionGroup } from 'react-transition-group'
-import Link from 'next/link'
+// import Link from 'next/link'
+import {Link, Router} from '../routes'
 import fetch from 'isomorphic-unfetch'
 
 import Head from '../components/head'
@@ -13,7 +14,7 @@ class Portfolio extends Component {
 		super(props);
 	}
 
-	static async getInitialProps() {
+	static async getInitialProps({query}) {
 		const res = await fetch('https://api.tvmaze.com/search/shows?q=batman')
 		const data = await res.json()
 
@@ -38,8 +39,8 @@ class Portfolio extends Component {
 					<RegularText>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quod quaerat, ducimus eaque rem ut ipsam natus, nulla blanditiis, cumque nihil unde adipisci corporis ab aperiam eius repudiandae magnam, optio placeat. Architecto repudiandae, perferendis exercitationem odio minus hic sequi dolorem laborum quis consectetur ullam tempore cum vel iusto repellendus, voluptate consequuntur fugiat. Modi pariatur vero maiores, vel atque a laborum recusandae veritatis in sunt dicta porro, illum itore. Qui blanditiis, distinctio culpa reiciendis dolore provident vel libero est, magni voluptas, ea consequuntur cum consectetur eius cupiditate veritatis, non fuga illo cumque. Delectus impedit dolore ab laborum excepturi unde assumenda doloribus vitae beatae nesciunt quibusdam porro cum temporibus, reiciendis autem repr maiores soluta!</RegularText>
 					<ul>
 						{this.props.shows.map(({show}) => (
-							<li key={show.id}>
-								<Link prefetch as={`/post/${show.id}`} href={`/post?id=${show.id}`}>
+							<li key={show.id} onClick={()=>{Router.pushRoute('portfolio', {id: show.id}); console.log(show.name.split(' ').join(''));}}>
+								<Link prefetch as={`/portfolio/${show.id}`} route={`/portfolio?id=${show.id}`}>
 									<a>{show.name}</a>
 								</Link>
 							</li>
