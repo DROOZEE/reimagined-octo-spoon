@@ -1,0 +1,5 @@
+{
+  "JobPosition":["NodeJS Developer","React.js Developer", "Recruiter", "Pizza Delivery Driver","Project Manager","Other"],
+	"ProjectType":["I don’t know...","Full development", "UI / UX Design","Web development","Quality assurance"],
+	"BudgetType":["I have money only for pizza","5000$ - 10000$", "10000$ - 25000$","25000$ - 50000$","I have an unlimited budget"]
+}

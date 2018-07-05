@@ -24,26 +24,19 @@ export default class MyDocument extends Document {
 }
 
 injectGlobal`
-	* {
+	${'' /* * {
 		box-sizing: border-box;
-	}
+	} */}
 
 	html {
 		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-		height: 100%;
-    width: 100%;
-    overflow: hidden;
+		overflow-x: hidden;
 		&.ovf-y_hidden {
 			overflow-y: hidden;
 		}
 	}
 
 	body {
-		width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    padding-right: calc(100vw - 100% + 100vw);
-    box-sizing: content-box;
 		margin: 0;
 		overflow-x: hidden;
 		background-color: #141414
@@ -76,7 +69,7 @@ injectGlobal`
 
 	.main-enter.main-enter-active {
 		opacity: 1;
-		transition: opacity 500ms ease-in;
+		transition: opacity 0.5s ease-in;
 	}
 
 	.main-leave {
@@ -85,7 +78,7 @@ injectGlobal`
 
 	.main-leave.main-leave-active {
 		opacity: 0.01;
-		transition: opacity 300ms ease-in;
+		transition: opacity 0.3s ease-in;
 	}
 
 	.main-appear {
@@ -93,7 +86,31 @@ injectGlobal`
 	}
 
 	.main-appear.main-appear-active {
-	opacity: 1;
-	transition: opacity .5s ease-in;
+		opacity: 1;
+		transition: opacity 0.5s ease-in;
+	}
+
+	@keyframes flash-circle {
+		0% {
+			border: 1px solid #9D9D9D;
+		}
+		50% {
+			border: 1px solid #ffffff;
+		}
+		100% {
+			border: 1px solid #9D9D9D;
+		}
+	}
+
+	@keyframes flash-line {
+		0% {
+			background-color: #9D9D9D;
+		}
+		50% {
+			background-color: #ffffff;
+		}
+		100% {
+			background-color: #9D9D9D;
+		}
 	}
 `

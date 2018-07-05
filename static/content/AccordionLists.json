@@ -1,0 +1,21 @@
+{
+  "ResponsibBackend":["3+ years of commercial experience with Node.js projects","Understanding of OOP and standard patterns of development","4 years of experience with JS","Experience in back-end development with NodeJS","Proficiency in SQL","Experience in Git’s workflow (branching, merging, rebasing etc.)","Agile processes experience (Scrum/Kanban)","Upper-Intermediate level of English, verbal skills","Experience in building a team would be a plus."],
+	"ResponsibFrontend":["3+ years of React.js development experience","Strong knowledge of Javascript","3-5 years building web applications","Knowledge of HTML5, CSS3, LESS (SASS or Stylus), Bootstrap, ES2015+","Experience with version control systems (git, github)","Familiarity and understanding of Agile methodologies","Upper-Intermediate level (English)"],
+	"ResponsibDriver":["2+ years of recruiting experience in outsourcing IT company",	"Network within IT",	"Be responsible for planning and executing commercial recruiting visits/events worldwide each season",	"Build and maintain strategic relationships with faculty and staff at targeted universities/educational institutions",	"Closing vacancies experience",	"Experience in hiring Senior / Lead specialists",	"Understanding of full lifecycle recruiting components",	"Advanced English"],
+	"ResponsibDesign":["2+ years of pizza delivery experience","Network within pizza delivery drivers","Simple math knowledge","Understanding pizza preparing and knowing its basic components","Advanced Ukrainian and Russian","18+ years old","Needs to have their own car with valid insurance","Geographic knowledge of the Kharkiv City Area","Ability to work night shifts on weekends","Applicants with flexible day/night availability preferred"],
+	"ResponsibManager":["3+ years of proven experience in managing web development teams as a Project Manager","Fluency in English","Multiple tasking skill","Previous experience as a Back End or Front End developer","Excellent knowledge and practical experience in development methodologies","Experience in projects from scratch, full SDLC understanding","Experience in transforming business needs into technical requirements and system architecture","Excellent time management and decision making skills","Excellent communication and leadership skills","Extensive experience with a management tool"],
+
+
+	"PersonalBackend":["You will build a Back End part of the ICO platform. You will develop it from a scratch together with CTO and your team. You will participate in the hiring process of team members. One of the key elements will be a tight communication with the client."],
+	"PersonalFrontend":["You will build a Front End part of the ICO platform. You will develop it from a scratch together with CTO and team lead. One of the key elements will be a tight communication with the client."],
+	"PersonalDriver":["You will be responsible for the recruiting process in our company and you have experience in hiring Middle and Seniors developers."],
+	"PersonalDesign":["You will be responsible for the pizza delivery process in our company."],
+	"PersonalManager":["You will manage a team of developers and conduct everyday/week's meeting with clients."],
+
+
+	"PlusBackend":["Competitive salary","Flexible schedule","40 hours working week","Social package", "Interesting projects"],
+	"PlusFrontend":["Competitive salary based on your skills and experience","Professional growth and your skills development ","40 hours working week","Flexible schedule", "Social package"],
+	"PlusDriver":["Competitive salary","Flexible schedule","40 hours working week","Social package", "Interesting projects"],
+	"PlusDesign":["Competitive salary","Flexible schedule","40 hours working week","Social package", "Interesting projects"],
+	"PlusManager":["Competitive salary","Flexible schedule","40 hours working week","Social package", "Interesting projects"]
+}

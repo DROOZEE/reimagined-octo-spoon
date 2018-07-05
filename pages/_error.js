@@ -2,6 +2,7 @@ import React, {Fragment, Component} from 'react'
 import Link from 'next/link'
 import Head from '../components/head'
 import styled from 'styled-components'
+import Sound from 'react-sound'
 
 class Error extends Component {
 	static getInitialProps({ res, err }) {
@@ -22,6 +23,13 @@ class Error extends Component {
 					<Link href="/">
 						<LinkHolder>Back to home.</LinkHolder>
 					</Link>
+
+					<Sound
+						url="../static/music/shittyfluted.mp3"
+						playStatus={Sound.status.PLAYING}
+						playFromPosition={2000}
+					/>
+
 				</ErrorWrap>
 			</Fragment>
 		)

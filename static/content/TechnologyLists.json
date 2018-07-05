@@ -1,0 +1,13 @@
+{
+  "Architecture":["UI/UX Design","Mobile Design","Animation Design","Graphic Design","Wire-framing/Prototyping","User Scenarios/User Stories","Research"],
+	"AdditionsDesign":["Web Design Analyze","Support modern design trends","Clear design feeling"],
+	"DesignTools":["Sketch","Figma","Adobe XD","Photoshop","Illustrator","After Effect","Invision"],
+	"FrameworksFront":["jQuery (JS)","Angular (JS)","Vue.js (JS)","React.js (JS)","Ember.js (JS)","GSAP (JS)","SASS, SCSS (CSS)","LESS (CSS)","Bootstrap (HTML)"],
+	"AdditionsFront":["CSS/SVG Animations","Retina support","Front-end Optimization","Google page-speed optimization","Local/Web Storage"],
+	"FrontEndTools":["Gulp.js","WebPack","Git"],
+	"FrameworksBack":["Laravel (PHP)","Yii (PHP)","Symfony (PHP)","Express.js (JS)"],
+	"AdditionsBack":["Payment system integration","Email distribution"],
+	"ContentManagementSystem":["OpenCart","WordPress","MODX"],
+	"Database":["MySQL","NoSQL","PostgreSQL","WebSQL","Nginx","MongoDB"],
+	"Actionitems":["Functional testing","User Interface testing","Performance testing","Test plans","Checklists","Test cases","Test reports"]
+}

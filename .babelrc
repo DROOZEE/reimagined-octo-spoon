@@ -3,6 +3,15 @@
     "next/babel"
   ],
   "plugins": [
-    ["styled-components", { "ssr": true, "displayName": true, "preprocess": false } ]
+    ["styled-components", { "ssr": true, "displayName": true, "preprocess": false } ],
+		["inline-import-data-uri", {
+      "extensions": [
+        ".html",
+        ".jpg",
+				".png",
+				".gif",
+				".mp3"
+      ]
+    }]
   ]
 }

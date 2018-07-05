@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'maincode';
-  src:  url('fonts/maincode.eot?rbeps4');
-  src:  url('fonts/maincode.eot?rbeps4#iefix') format('embedded-opentype'),
-    url('fonts/maincode.ttf?rbeps4') format('truetype'),
-    url('fonts/maincode.woff?rbeps4') format('woff'),
-    url('fonts/maincode.svg?rbeps4#maincode') format('svg');
+  src:  url('fonts/maincode.eot?5wdx6z');
+  src:  url('fonts/maincode.eot?5wdx6z#iefix') format('embedded-opentype'),
+    url('fonts/maincode.ttf?5wdx6z') format('truetype'),
+    url('fonts/maincode.woff?5wdx6z') format('woff'),
+    url('fonts/maincode.svg?5wdx6z#maincode') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,45 +24,45 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.maincode-review:before {
-  content: "\e90b";
-}
-.maincode-arrow-right-circle:before {
-  content: "\e90c";
-}
-.maincode-corner-up-left:before {
-  content: "\e900";
-}
-.maincode-paperclip:before {
-  content: "\e919";
-}
-.maincode-arrow-right-long:before {
-  content: "\e906";
-}
-.maincode-close:before {
-  content: "\e908";
-}
-.maincode-plus:before {
-  content: "\e901";
-}
-.maincode-minus:before {
-  content: "\e902";
-}
-.maincode-play:before {
-  content: "\e903";
-}
-.maincode-arrow-down:before {
-  content: "\e904";
-}
-.maincode-behance:before {
-  content: "\e905";
-}
 .maincode-facebook:before {
   content: "\e907";
 }
+.maincode-arrow-down:before {
+  content: "\e901";
+}
+.maincode-arrow-right-circle:before {
+  content: "\e902";
+}
+.maincode-arrow-right-long:before {
+  content: "\e903";
+}
+.maincode-behance:before {
+  content: "\e904";
+}
+.maincode-close:before {
+  content: "\e905";
+}
+.maincode-corner-up-left:before {
+  content: "\e906";
+}
 .maincode-instagram:before {
+  content: "\e908";
+}
+.maincode-minus:before {
   content: "\e909";
 }
-.maincode-upwork:before {
+.maincode-paperclip:before {
   content: "\e90a";
+}
+.maincode-play:before {
+  content: "\e90b";
+}
+.maincode-plus:before {
+  content: "\e90c";
+}
+.maincode-review:before {
+  content: "\e90d";
+}
+.maincode-upwork:before {
+  content: "\e90e";
 }

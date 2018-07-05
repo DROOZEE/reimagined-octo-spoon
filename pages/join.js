@@ -30,10 +30,14 @@ class Join extends Component {
 export default connect()(Join)
 
 const Main = styled(CSSTransitionGroup)`
-	padding: 15px 15px 60px 15px;
+	padding: 90px 0px 60px 0px;
 	min-height: calc(100vh - 80px);
 	background-color: #141414;
-	width: 100vw;
+	width: 100%;
+	box-sizing: border-box;
+	@media (max-width: 1025px) {
+		padding: 90px 0px 30px 0px;
+	}
 `
 
 const RegularText = styled.p`

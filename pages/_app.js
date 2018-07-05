@@ -3,8 +3,10 @@ import App, {Container} from 'next/app'
 import withReduxStore from '../lib/with-redux-store'
 import { Provider } from 'react-redux'
 
-import Header from '../components/header'
+import {HeaderHorizontal} from '../components/headerHorizontal'
+import Header from '../components/headerVertical'
 import Footer from '../components/footer'
+import {SidebarLeft, SidebarRight} from '../components/sideBar'
 
 class Layout extends React.Component {
 	static getInitialProps({ res, err }) {
@@ -16,8 +18,13 @@ class Layout extends React.Component {
 		const {children} = this.props
 		return (
 			<div className='page'>
-				{!this.props.children.props.statusCode ? <Header /> : null}
+				{!this.props.children.props.statusCode ? <HeaderHorizontal /> : null}
+
+				{!this.props.children.props.statusCode ? <SidebarLeft /> : null}
+				{!this.props.children.props.statusCode ? <SidebarRight /> : null}
+
 				{children}
+
 				{!this.props.children.props.statusCode ? <Footer /> : null}
 			</div>
 		)

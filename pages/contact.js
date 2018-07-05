@@ -1,4 +1,5 @@
 import React, {Fragment, Component} from "react"
+import Link from 'next/link'
 import styled, {css} from 'styled-components'
 import { CSSTransitionGroup } from 'react-transition-group'
 
@@ -23,6 +24,7 @@ class Contact extends Component {
 					<RegularText>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quod quaerat, ducimus eaque rem ut ipsam natus, nulla blanditiis, cumque nihil unde adipisci corporis ab aperiam eius repudiandae magnam, optio placeat. Architiditate accusantium blanditiis laudantium, unde, perferendis ab enim odit eligendi sed reiciendis magnam. Alias atque nam voluptates, obcaecati vitae optio illo eos dolor maiores soluta!</RegularText>
 					<RegularText>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quod quaerat, ducimus eaque rem ut ipsam natus, nulla blanditiis, cumque nihil unde adipisci corporis ab aperiam eius repudiandae magnam, optio placeat. Architiditate accusantium blanditiis laudantium, unde, perferendis ab enim odit eligendi sed reiciendis magnam. Alias atque nam voluptates, obcaecati vitae optio illo eos dolor maiores soluta!</RegularText>
 					<RegularText>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam inventore provident aliquam omnis perspiciatis voluptas, ratione expedita ut consectetur magnam dolores qui repellat, eligendi autem, voluptates est ducimus iusto. Aliquam illo, consequuntur omnis aliquid nisi aperiam vero in, ipsa impedit enim provident officiis et ex illum dignissimos. Doloremque eos, nesciunt sint sequi necessitatibus veniam modi ducimus incidunt, perspiciatis quod accusantium esse suscipit distinctio quae! Neque, quod cupiditate, earum sint perspiciatis enim modi eaque id eligendi ipsam voluptas maiores iusto laudantium vitae, aliquam sed quidem reprehenderit. Possimus vero magni accusantium repellendus ex, vitae ab consequuntur, voluptates fugiat, labore saepe alias quibusdam!</RegularText>
+					<Link href="/fdsa"><a>to reefdsx</a></Link>
 				</Main>
 			</Fragment>
 		)
@@ -32,10 +34,14 @@ class Contact extends Component {
 export default connect()(Contact)
 
 const Main = styled(CSSTransitionGroup)`
-	padding: 15px 15px 60px 15px;
+	padding: 90px 0px 60px 0px;
 	min-height: calc(100vh - 80px);
 	background-color: #141414;
-	width: 100vw;
+	width: 100%;
+	box-sizing: border-box;
+	@media (max-width: 1025px) {
+		padding: 90px 0px 30px 0px;
+	}
 `
 
 const RegularText = styled.p`

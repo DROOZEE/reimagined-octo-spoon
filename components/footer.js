@@ -21,7 +21,8 @@ export default class Footer extends Component {
 const FooterWrap = styled.footer`
 	text-align: center;
 	background-color: #141414;
-	width: 100vw;
+	width: 100%;
+	box-sizing: border-box;
 `
 const LinkHolder = styled.a`
 	display: inline-block;
