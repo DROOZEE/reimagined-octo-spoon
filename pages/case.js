@@ -6,26 +6,42 @@ import fetch from 'isomorphic-unfetch'
 
 import Head from '../components/head'
 
+import ProjectFirstScreen from '../components/projectFirstScreen'
+import ProjectSecondScreen from '../components/projectSecondScreen'
+
 import {connect} from 'react-redux'
 
 class Post extends Component {
 	constructor(props) {
 		super(props);
+		this.set = this.set.bind(this)(this.props.name);
+	}
+
+	set(name) {
+		const returnedCase = this.props.state.loadCaseData.find(({item}) => item.name === name);
+		this.props.onSetData(returnedCase);
 	}
 
 	static async getInitialProps(context) {
-		const { id } = context.query
-		const res = await fetch(`https://api.tvmaze.com/shows/${id}`)
-		const show = await res.json()
+		const { name } = context.query
 
-		return { show }
+		return { name }
 	}
+
+	// static async getInitialProps(context) {
+	// 	const { name } = context.query
+	// 	// const res = await fetch(`https://api.tvmaze.com/shows/${id}`)
+	// 	// const show = await res.json()
+	// 	return {
+	// 		name
+	// 	}
+	// }
 
 	render() {
 		return (
 			<Fragment>
-				<Head title={this.props.show.name}
-					description={this.props.show.summary.replace(/<[/]?p>/g, '').replace(/<[/]?b>/g, '')}
+				<Head title={this.props.state.setData.item ? this.props.state.setData.item.title : ''}
+					description={this.props.state.setData.item ? this.props.state.setData.item.desc  : ''}
 				/>
 				<Main
 					component="main"
@@ -34,9 +50,9 @@ class Post extends Component {
 					transitionLeaveTimeout={300}
 					transitionAppear={true}
 					transitionAppearTimeout={500}>
-					<RegularText>{this.props.show.name}</RegularText>
-					<RegularText>{this.props.show.summary.replace(/<[/]?p>/g, '').replace(/<[/]?b>/g, '')}</RegularText>
-					<Img src={this.props.show.image.medium}/>
+
+					<ProjectFirstScreen />
+					<ProjectSecondScreen />
 
 					<Link href="/portfolio">
 						<LinkHolder>Back to portfolio</LinkHolder>
@@ -47,7 +63,19 @@ class Post extends Component {
 	}
 }
 
-export default Post
+export default connect(
+	state => ({
+		state
+	}),
+	dispatch => ({
+		onGetCaseData: (data) => {
+			dispatch({type: 'GETDATA', payload: data});
+		},
+		onSetData: (data) => {
+			dispatch({type: 'SETDATA', payload: data});
+		}
+	})
+)(Post)
 
 const Main = styled(CSSTransitionGroup)`
 	padding: 90px 0px 60px 0px;

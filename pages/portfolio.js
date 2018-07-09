@@ -1,10 +1,7 @@
 import React, {Fragment, Component} from "react"
 import styled, {css} from 'styled-components'
 import { CSSTransitionGroup } from 'react-transition-group'
-// import Link from 'next/link'
 import {Link, Router} from '../routes'
-import fetch from 'isomorphic-unfetch'
-
 import Head from '../components/head'
 
 import {connect} from 'react-redux'
@@ -12,16 +9,21 @@ import {connect} from 'react-redux'
 class Portfolio extends Component {
 	constructor(props) {
 		super(props);
+		this.set = this.set.bind(this);
+	}
+	set(test) {
+		const returnedCase = this.props.state.loadCaseData.find(({item}) => item.name === test);
+		this.props.onSetData(returnedCase);
 	}
 
-	static async getInitialProps({query}) {
-		const res = await fetch('https://api.tvmaze.com/search/shows?q=batman')
-		const data = await res.json()
-
-		return {
-			shows: data
-		}
-	}
+	// static async getInitialProps({query}) {
+	// 	const res = await fetch('https://api.tvmaze.com/search/shows?q=batman')
+	// 	const data = await res.json()
+	//
+	// 	return {
+	// 		shows: data
+	// 	}
+	// }
 
 	render () {
 		return (
@@ -36,12 +38,11 @@ class Portfolio extends Component {
 					transitionLeaveTimeout={300}
 					transitionAppear={true}
 					transitionAppearTimeout={500}>
-					<RegularText>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quod quaerat, ducimus eaque rem ut ipsam natus, nulla blanditiis, cumque nihil unde adipisci corporis ab aperiam eius repudiandae magnam, optio placeat. Architecto repudiandae, perferendis exercitationem odio minus hic sequi dolorem laborum quis consectetur ullam tempore cum vel iusto repellendus, voluptate consequuntur fugiat. Modi pariatur vero maiores, vel atque a laborum recusandae veritatis in sunt dicta porro, illum itore. Qui blanditiis, distinctio culpa reiciendis dolore provident vel libero est, magni voluptas, ea consequuntur cum consectetur eius cupiditate veritatis, non fuga illo cumque. Delectus impedit dolore ab laborum excepturi unde assumenda doloribus vitae beatae nesciunt quibusdam porro cum temporibus, reiciendis autem repr maiores soluta!</RegularText>
 					<ul>
-						{this.props.shows.map(({show}) => (
-							<li key={show.id} onClick={()=>{Router.pushRoute('portfolio', {id: show.id}); console.log(show.name.split(' ').join(''));}}>
-								<Link prefetch as={`/portfolio/${show.id}`} route={`/portfolio?id=${show.id}`}>
-									<a>{show.name}</a>
+						{this.props.state.loadCaseData.map(({item}) => (
+							<li key={item.id} onClick={()=>{Router.pushRoute('portfolio', {name: item.name}); this.set(item.name)}}>
+								<Link prefetch as={`/portfolio/${item.name}`} route={`/portfolio?name=${item.name}`}>
+									<a>{item.name}</a>
 								</Link>
 							</li>
 						))}
@@ -52,7 +53,19 @@ class Portfolio extends Component {
 	}
 }
 
-export default connect()(Portfolio)
+export default connect(
+	state => ({
+		state
+	}),
+	dispatch => ({
+		onGetCaseData: (data) => {
+			dispatch({type: 'GETDATA', payload: data});
+		},
+		onSetData: (data) => {
+			dispatch({type: 'SETDATA', payload: data});
+		}
+	})
+)(Portfolio)
 
 const Main = styled(CSSTransitionGroup)`
 	padding: 90px 0px 60px 0px;
@@ -62,21 +75,5 @@ const Main = styled(CSSTransitionGroup)`
 	box-sizing: border-box;
 	@media (max-width: 1025px) {
 		padding: 90px 0px 30px 0px;
-	}
-`
-
-const RegularText = styled.p`
-	font-family: "Circular", sans-serif;
-	-webkit-font-smoothing: antialiased;
-	font-size: 16px;
-	line-height: 26px;
-	color: #9D9D9D;
-	display: block;
-
-	max-width: 600px;
-	padding: 0 0 0 0;
-	margin: 0 0 20px 0;
-	&:last-of-type {
-		margin: 0 0 0 0;
 	}
 `
