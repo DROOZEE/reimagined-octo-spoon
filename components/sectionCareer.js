@@ -312,10 +312,7 @@ const AccordionContent = styled.div`
 	box-sizing: border-box;
 	width: 100%;
 	background-color: #ffffff;
-	transform-origin: 0% 0%;
-	transition: 0.6s all cubic-bezier(0.4, 0.0, 0.2, 1);
-	&.accordion-content_active {
-	}
+	display: none;
 	@media (max-width: 992px) {
 		padding: 5px 15px 30px 15px;
 	}

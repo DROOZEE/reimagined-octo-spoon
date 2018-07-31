@@ -6,7 +6,7 @@ const defaultOGURL = ''
 const defaultOGImage = ''
 
 const Head = (props) => (
-	<NextHead>
+	<NextHead {...props}>
 		<meta charset="UTF-8" />
 		<title>{props.title || ''}</title>
 		<meta name="description" content={props.description || defaultDescription} />
@@ -30,6 +30,17 @@ const Head = (props) => (
 		<link rel='stylesheet' type='text/css' href='/static/fonts/AvantGardeLT/style.css' />
 		<link rel='stylesheet' type='text/css' href='/static/fonts/Circular/style.css' />
 		<link rel='stylesheet' type='text/css' href='/static/fonts/CircularMed/style.css' />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/jquery.gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/utils/Draggable.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/ScrollToPlugin.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/PixiPlugin.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/ModifiersPlugin.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/ColorPropsPlugin.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSRulePlugin.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/EaselPlugin.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/TextPlugin.min.js"></script>
 	</NextHead>
 )
 

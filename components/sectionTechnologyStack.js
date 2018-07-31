@@ -1,5 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { CSSTransitionGroup } from 'react-transition-group'
+import Lazyload from "react-lazyload"
 
 import {Architecture,AdditionsDesign,DesignTools,FrameworksFront,AdditionsFront,FrontEndTools,FrameworksBack,AdditionsBack,ContentManagementSystem,Database,Actionitems} from "../static/content/TechnologyLists.json";
 
@@ -17,7 +19,17 @@ export function SectionTechnologiesStack(props) {
 					<TechnologyNumber>01</TechnologyNumber>
 					<RegularTitle>UX / UI Design</RegularTitle>
 					<RegularText>Today Design effects not only customer’s visually-esthetic perception, but is also acknowledged as one of the main tool in Web Marketing, helping a customer choose the right route of the application map. </RegularText>
-					<GifImageStyled src={Design} />
+					<Lazyload throttle={200} height={400} offset={200} once>
+						<CSSTransitionGroup
+							key="1"
+							transitionName="fade"
+							transitionAppear
+							transitionAppearTimeout={500}
+							transitionEnter={false}
+							transitionLeave={false}>
+							<GifImageStyled src={Design} />
+						</CSSTransitionGroup>
+					</Lazyload>
 					<WrapperStd subblock>
 						<SubTitle>UX - User Experience </SubTitle>
 						<SubText>Our designers care about usability and profit of your product. Having marketing knowledge they know how to lead your customer to the right action and use your application with ease.</SubText>
@@ -56,7 +68,17 @@ export function SectionTechnologiesStack(props) {
 					<TechnologyNumber>02</TechnologyNumber>
 					<RegularTitle>Web Development</RegularTitle>
 					<RegularText>Our web developers can use a plethora of different scripting languages to create web applications. All of them have their own advantages, disadvantages and specific purposes.</RegularText>
-					<GifImageStyled src={Web} />
+					<Lazyload throttle={200} height={400} offset={200} once>
+						<CSSTransitionGroup
+							key="1"
+							transitionName="fade"
+							transitionAppear
+							transitionAppearTimeout={500}
+							transitionEnter={false}
+							transitionLeave={false}>
+							<GifImageStyled src={Web} />
+						</CSSTransitionGroup>
+					</Lazyload>
 					<WrapperStd subblock>
 						<SubTitle>Front-end developers</SubTitle>
 						<SubText>will take care  how your web product will look like. We consider cross-browser compatibility to have ultimate importance according to nowadays reality, i.e. how the web application will function across various different browsers, such as Mozilla Firefox, Internet Explorer, Google Chrome, Opera, Safari, mobile browsers etc. We will take care your product looks pixel-perfect in any environment.</SubText>
@@ -122,8 +144,17 @@ export function SectionTechnologiesStack(props) {
 					<TechnologyNumber>03</TechnologyNumber>
 					<RegularTitle>Quality Assurance</RegularTitle>
 					<RegularText>Quality Assurance ia also an important part of development process as it can save time, money and avoid further frustration by early discovering defects in the development cycle.</RegularText>
-					<GifImageStyled src={Qa} />
-
+					<Lazyload throttle={200} height={400} offset={200} once>
+						<CSSTransitionGroup
+							key="1"
+							transitionName="fade"
+							transitionAppear
+							transitionAppearTimeout={500}
+							transitionEnter={false}
+							transitionLeave={false}>
+							<GifImageStyled src={Qa} />
+						</CSSTransitionGroup>
+					</Lazyload>
 					<WrapperStd subblock>
 						<SubTitle>Quality Assurance</SubTitle>
 						<SubText>Even if you have a finished product a proper QA testing will show all inconsistencies and errors. Testing of a product according to the speciafication requirements will help not only indicate if it corresponds the documentation, but whether it will survive the real world and work correctly for years and years.</SubText>

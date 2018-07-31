@@ -1,8 +1,8 @@
 import React, {Component, Fragment} from "react";
 import styled, {css} from 'styled-components';
-import {NavHorizontal} from "./navHorizontal";
+import NavHorizontal from "./navHorizontal";
 
-export class HeaderHorizontal extends Component {
+class HeaderHorizontal extends Component {
 	componentDidMount() {
 		let lastScrollTop = 0;
 		document.addEventListener("scroll", function(){
@@ -19,7 +19,6 @@ export class HeaderHorizontal extends Component {
 				}
 			lastScrollTop = currentScrollTop;
 		}, false);
-
 	}
 
 	render() {
@@ -32,6 +31,8 @@ export class HeaderHorizontal extends Component {
 		)
 	}
 }
+
+export default HeaderHorizontal
 
 const HeaderStd = styled.header`
 	position: fixed;

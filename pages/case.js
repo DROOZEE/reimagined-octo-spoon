@@ -1,8 +1,9 @@
 import React, {Fragment, Component} from "react"
 import styled, {css} from 'styled-components'
 import { CSSTransitionGroup } from 'react-transition-group'
-import Link from 'next/link'
+// import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
+import {Link, Router} from '../routes'
 
 import Head from '../components/head'
 
@@ -11,10 +12,13 @@ import ProjectSecondScreen from '../components/projectSecondScreen'
 
 import {connect} from 'react-redux'
 
-class Post extends Component {
+const setTop = () => window.scrollTo(0,0);
+
+class Case extends Component {
 	constructor(props) {
 		super(props);
-		this.set = this.set.bind(this)(this.props.name);
+		this.state = {}
+		this.set = this.set.bind(this);
 	}
 
 	set(name) {
@@ -28,22 +32,19 @@ class Post extends Component {
 		return { name }
 	}
 
-	// static async getInitialProps(context) {
-	// 	const { name } = context.query
-	// 	// const res = await fetch(`https://api.tvmaze.com/shows/${id}`)
-	// 	// const show = await res.json()
-	// 	return {
-	// 		name
-	// 	}
-	// }
+	componentDidMount() {
+		this.set(this.props.name);
+	}
 
 	render() {
 		return (
 			<Fragment>
-				<Head title={this.props.state.setData.item ? this.props.state.setData.item.title : ''}
-					description={this.props.state.setData.item ? this.props.state.setData.item.desc  : ''}
+				<Head title={this.props.state.setData.item ? this.props.state.setData.item.title : ""}
+					description={this.props.state.setData.item ? this.props.state.setData.item.desc : ""}
 				/>
+				{this.props.state.setData.item ?
 				<Main
+					className="case"
 					component="main"
 					transitionName="main"
 					transitionEnterTimeout={500}
@@ -57,9 +58,24 @@ class Post extends Component {
 					<Link href="/portfolio">
 						<LinkHolder>Back to portfolio</LinkHolder>
 					</Link>
+
+
+					<div onClick={() => {
+						Router.pushRoute('portfolio', {name: this.props.state.setData.item.nextCase});
+						setTimeout(() => {
+							this.set(this.props.name);
+							setTop();
+						},1);
+					}}>
+						<Link prefetch as={`/portfolio/${this.props.state.setData.item.nextCase}`} route={`/portfolio?name=${this.props.state.setData.item.nextCase}`}>
+							<LinkHolder>{this.props.state.setData.item.nextCase}</LinkHolder>
+						</Link>
+					</div>
 				</Main>
+				: null}
 			</Fragment>
 		)
+
 	}
 }
 
@@ -75,7 +91,7 @@ export default connect(
 			dispatch({type: 'SETDATA', payload: data});
 		}
 	})
-)(Post)
+)(Case)
 
 const Main = styled(CSSTransitionGroup)`
 	padding: 90px 0px 60px 0px;
@@ -118,5 +134,10 @@ const LinkHolder = styled.a`
 	padding: 10px;
 	&:hover {
 		color: #ffffff;
+	}
+	@media (max-width: 1025px) {
+		&:hover {
+			color: #9D9D9D;
+		}
 	}
 `

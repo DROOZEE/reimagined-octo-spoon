@@ -58,7 +58,7 @@ export class ShowreelLink extends Component {
 		return (
 			<ShowreelLinkWrap className="showreel-link-wrap">
 				<Link href="/showreel">
-					<ShowreelLinkStd className="showreel-link showreel-link_open">
+					<ShowreelLinkStd className="showreel-link showreel-link_open showreel-link_active">
 						<div onClick={this.handlePath}>
 							<ShowreelIconStd className="showreel-link__icon maincode-play"></ShowreelIconStd><span className="showreel-link__text showreel-link__text_open">Showreel</span>
 						</div>
@@ -88,9 +88,9 @@ const ShowreelLinkWrap = styled.div`
 	@media (max-width: 1400px) {
 		height: 60px;
 	}
-	@media (max-width: 1025px) {
+	${'' /* @media (max-width: 1025px) {
 		display: none !important;
-	}
+	} */}
 `
 const ShowreelLinkStd = styled.a`
 	position: relative;
@@ -101,8 +101,8 @@ const ShowreelLinkStd = styled.a`
 	color: #9D9D9D;
 	text-decoration: none;
 	transition: 0.3s all cubic-bezier(0.4, 0.0, 0.2, 1);
-	display: none;
 	padding: 0px 10px;
+	display: none;
 	position: relative;
 	cursor: pointer;
 	&:hover {
@@ -110,7 +110,7 @@ const ShowreelLinkStd = styled.a`
 		transition: 0.3s all cubic-bezier(0.4, 0.0, 0.2, 1);
 	}
 	&.showreel-link_active {
-		display: block;
+		display: inline-block;
 	}
 	&.showreel-link_close {
 		color: #ffffff;

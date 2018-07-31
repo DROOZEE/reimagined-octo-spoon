@@ -58,9 +58,6 @@ export default connect(
 		state
 	}),
 	dispatch => ({
-		onGetCaseData: (data) => {
-			dispatch({type: 'GETDATA', payload: data});
-		},
 		onSetData: (data) => {
 			dispatch({type: 'SETDATA', payload: data});
 		}

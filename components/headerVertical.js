@@ -1,47 +1,16 @@
 import NavVertical from './navVertical'
-import NProgress from 'nprogress'
-import Router from 'next/router'
 import React, {Component, Fragment} from "react"
 import styled from 'styled-components'
 
 import {connect} from 'react-redux'
 
-NProgress.configure({ showSpinner: false });
 
-Router.onRouteChangeStart = (url) => {
-	NProgress.start()
-}
-Router.onRouteChangeComplete = () => {
-	NProgress.done()
-
-	if(window.location.pathname === '/showreel'){
-		document.getElementsByClassName('showreel-link_open')[0].classList.remove("showreel-link_active")
-		document.getElementsByClassName('showreel-link_close')[0].classList.add("showreel-link_active")
-		document.getElementsByClassName('lets-talk')[0].classList.add("lets-talk_hidden")
-		document.getElementsByClassName('min-lets-talk')[0].classList.add("min-lets-talk_hidden")
-		document.getElementsByClassName('header')[0].classList.add("header_hidden")
-	} else {
-		document.getElementsByClassName('showreel-link_open')[0].classList.add("showreel-link_active")
-		document.getElementsByClassName('showreel-link_close')[0].classList.remove("showreel-link_active")
-		document.getElementsByClassName('lets-talk')[0].classList.remove("lets-talk_hidden")
-		document.getElementsByClassName('min-lets-talk')[0].classList.remove("min-lets-talk_hidden")
-		document.getElementsByClassName('header')[0].classList.remove("header_hidden")
-		if(window.location.pathname === '/contact'){
-			document.getElementsByClassName('lets-talk')[0].classList.add("lets-talk_hidden")
-			document.getElementsByClassName('min-lets-talk')[0].classList.add("min-lets-talk_hidden")
-		} else {
-			document.getElementsByClassName('lets-talk')[0].classList.remove("lets-talk_hidden")
-			document.getElementsByClassName('min-lets-talk')[0].classList.remove("min-lets-talk_hidden")
-		};
-	};
-}
-Router.onRouteChangeError = () => NProgress.done()
-
-class Header extends Component {
+class HeaderVertical extends Component {
 	constructor(props) {
 		super(props);
 		this.toggle = this.toggle.bind(this);
 		this.close = this.close.bind(this);
+		this.test = this.test.bind(this);
 	}
 	toggle() {
 		this.props.onToggleMenu();
@@ -50,17 +19,35 @@ class Header extends Component {
 		this.props.onCloseMenu();
 	}
 	shouldComponentUpdate(nextProps, nextState) {
-		let html = document.getElementsByTagName('html');
-		!this.props.state.changeMenu.openedMenu ? html[0].classList.add("ovf-y_hidden") : html[0].classList.remove("ovf-y_hidden");
+		// let html = document.getElementsByTagName('html');
+		// if(this.props.state.changeMenu.openedMenu === true) {
+		// 	html[0].classList.add("ovf-y_hidden")
+		// } else {
+		// 	html[0].classList.remove("ovf-y_hidden");
+		// }
+		// this.props.state.changeMenu.openedMenu === true ? html[0].classList.add("ovf-y_hidden") : html[0].classList.remove("ovf-y_hidden");
 		return true;
+	}
+	test() {
+		let html = document.getElementsByTagName('html');
+		this.props.state.changeMenu.openedMenu === true ? html[0].classList.add("ovf-y_hidden") : html[0].classList.remove("ovf-y_hidden");
+		window.addEventListener("resize", () => {
+			document.getElementsByClassName("vert-header")[0].classList.remove("active");
+			document.getElementsByClassName("vert-fader")[0].classList.remove("active");
+			html[0].classList.remove("ovf-y_hidden");
+		}, false);
+	}
+
+	componentDidUpdate() {
+		this.test();
 	}
 
 	render () {
 		return (
 			<Fragment>
 				<Button onClick={this.toggle} >TOGGLEMENU</Button>
-				<Fader onClick={this.close} className={this.props.state.changeMenu.openedMenu ? `active` : null} />
-				<HeaderWrap className={this.props.state.changeMenu.openedMenu ? `active` : null} ><NavVertical /></HeaderWrap>
+				<Fader onClick={this.close} className={`vert-fader ${this.props.state.changeMenu.openedMenu ? `active` : null}`} />
+				<Header className={`vert-header ${this.props.state.changeMenu.openedMenu ? `active` : null}`} ><NavVertical /></Header>
 			</Fragment>
 		)
 	}
@@ -76,39 +63,40 @@ export default connect(
 		},
 		onCloseMenu: (data) => {
 			dispatch({type: 'CLOSEMENU', payload: data});
-		},
-		onMoreWidth: (data) => {
-			dispatch({type: 'MORE', payload: data});
-		},
-		onLessWidth: (data) => {
-			dispatch({type: 'LESS', payload: data});
 		}
 	})
-)(Header)
+)(HeaderVertical)
 
 const Button = styled.button`
+	display: none;
 	position: fixed;
 	top: 30px;
 	right: calc(100% - 100vw + 30px);
-	z-index: 100;
+	z-index: 200;
+	@media (max-width: 1024px) {
+		display: block;
+	}
 `
 
-const HeaderWrap = styled.header`
+const Header = styled.header`
+	display: none;
 	position: fixed;
 	top: 0;
-	right: 0;
-	width: 400px;
+	right: calc(100% - 100vw);
 	background-color: #333333;
-	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
-	z-index: 60;
+	z-index: 110;
 	transform: translateX(100%);
-	transition: 0.5s all cubic-bezier(0.4, 0.0, 0.2, 1);
+	transition: 0.5s transform cubic-bezier(0.4, 0.0, 0.2, 1);
 	&.active {
 		transform: translateX(0%);
+	}
+	@media (max-width: 1024px) {
+		display: flex;
+		width: 400px;
 	}
 	@media (max-width: 768px) {
 		width: 100vw;
@@ -116,19 +104,23 @@ const HeaderWrap = styled.header`
 `
 
 const Fader = styled.div`
+	display: none;
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 50;
+	z-index: 110;
 	width: 100vw;
 	height: 100vh;
 	background-color: rgba(20, 20, 20, 0.8);
 	opacity: 0;
 	visibility: hidden;
-	transition: 0.5s all cubic-bezier(0.4, 0.0, 0.2, 1);
+	transition: 0.5s visibility cubic-bezier(0.4, 0.0, 0.2, 1), 0.5s opacity cubic-bezier(0.4, 0.0, 0.2, 1);
 	&.active {
 		opacity: 1;
 		visibility: visible;
+	}
+	@media (max-width: 1024px) {
+		display: block;
 	}
 	@media (max-width: 768px) {
 		display: none;

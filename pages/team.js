@@ -1,6 +1,7 @@
 import React, {Fragment, Component} from "react"
 import styled, {css} from 'styled-components'
 import { CSSTransitionGroup } from 'react-transition-group'
+import Lazyload from "react-lazyload"
 
 import Head from '../components/head'
 
@@ -88,197 +89,505 @@ class Team extends Component {
 						<TeamRow className="team-row">
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image1} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image1} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif pavel className="team-card__gif" src={Gif1} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Paul M.</CardText>
 								<CardText teamPosition>Chief Executive Officer</CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image2} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image2} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif alexander className="team-card__gif" src={Gif2} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Alex L.</CardText>
 								<CardText teamPosition>Executive Art Director</CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image4} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image4} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif daniil className="team-card__gif" src={Gif4} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Daniel S.</CardText>
 								<CardText teamPosition>Chief Technology Officer</CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image7} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image7} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif nick className="team-card__gif" src={Gif7} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Dmitry A.</CardText>
 								<CardText teamPosition>Full Stack Developer</CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image16} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image16} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif alinaGri className="team-card__gif" src={Gif17} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Alina G.</CardText>
 								<CardText teamPosition>Product Manager</CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image5} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image5} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif tanya className="team-card__gif" src={Gif5} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Tetiana S.</CardText>
 								<CardText teamPosition>UI Designer</CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image10} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image10} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif sergey className="team-card__gif" src={Gif10} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Sergey V.</CardText>
 								<CardText teamPosition>Front End Developer</CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image21} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image21} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif nikitaSok className="team-card__gif" src={Gif21} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Nick S.</CardText>
 								<CardText teamPosition>Back End Developer</CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image17} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image17} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif valentina className="team-card__gif" src={Gif16} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Valentina S.</CardText>
 								<CardText teamPosition>Project Manager</CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image6} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image6} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif marina className="team-card__gif" src={Gif6} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Marina K.</CardText>
 								<CardText teamPosition>UX Designer</CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image8} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image8} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif maxim className="team-card__gif" src={Gif8} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Max G.</CardText>
 								<CardText teamPosition>Front End Developer</CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image22} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image22} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif artem className="team-card__gif" src={Gif22} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Artem G.</CardText>
 								<CardText teamPosition>Back End Developer</CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image20} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image20} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif nikitaGre className="team-card__gif" src={Gif20} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Nick G.</CardText>
 								<CardText teamPosition>Business Analyst </CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image14} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image14} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif alina className="team-card__gif" src={Gif14} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Alina O.</CardText>
 								<CardText teamPosition>Illustrator</CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image18} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image18} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif anastasia className="team-card__gif" src={Gif18} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Anastasia F.</CardText>
 								<CardText teamPosition>Front End Developer</CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image12} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image12} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif marinaGer className="team-card__gif" src={Gif12} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Marina G.</CardText>
 								<CardText teamPosition>QA Specialist</CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image3} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image3} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif alex className="team-card__gif" src={Gif3} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Alexey E.</CardText>
 								<CardText teamPosition>Sales Manager</CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image19} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image19} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif alyona className="team-card__gif" src={Gif19} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Alena B.</CardText>
 								<CardText teamPosition>Graphic Designer</CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image13} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image13} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif maria className="team-card__gif" src={Gif13} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Mary Z.</CardText>
 								<CardText teamPosition>Content Strategist</CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image15} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image15} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif andrey className="team-card__gif" src={Gif15} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Andrew N.</CardText>
 								<CardText teamPosition>DevOps Engineer</CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image11} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image11} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif anna className="team-card__gif" src={Gif11} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Ann V.</CardText>
 								<CardText teamPosition>HR Manager</CardText>
 							</TeamCard>
 
+
 							<TeamCard>
 								<TeamImageWrap>
-									<TeamCardImage src={Image9} alt="photo"/>
+									<Lazyload throttle={200} height={330} offset={250} once>
+										<CSSTransitionGroup
+											key="1"
+											transitionName="fade"
+											transitionAppear
+											transitionAppearTimeout={500}
+											transitionEnter={false}
+											transitionLeave={false}>
+											<TeamCardImage src={Image9} alt="photo"/>
+										</CSSTransitionGroup>
+									</Lazyload>
+
+										<Lazyload throttle={200} height={330} offset={250} once>
 									<TeamCardGif eugene className="team-card__gif" src={Gif9} alt="gif"/>
+							</Lazyload>
 								</TeamImageWrap>
 								<CardText teamName>Eugene I.</CardText>
 								<CardText teamPosition>Lawyer</CardText>

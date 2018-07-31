@@ -1,42 +1,44 @@
 import React, {Component} from "react";
-import ActiveLink from './activeLink'
 import styled from 'styled-components';
+import ActiveLink from './activeLink'
 
-export class NavHorizontal extends Component {
+class NavHorizontal extends Component {
 	render() {
 		return (
-			<HeaderMnuStd>
-				<HeaderMnuItemStd>
+			<List>
+				<ListItem>
 					<ActiveLink activeClassName="active" prefetch href="/portfolio">
 						<LinkHolder>Portfolio</LinkHolder>
 					</ActiveLink>
-				</HeaderMnuItemStd>
-				<HeaderMnuItemStd>
+				</ListItem>
+				<ListItem>
 					<ActiveLink activeClassName="active" prefetch href="/technologies">
 						<LinkHolder>Technologies</LinkHolder>
 					</ActiveLink>
-				</HeaderMnuItemStd>
-				<HeaderMnuItemStd>
+				</ListItem>
+				<ListItem>
 					<ActiveLink activeClassName="active" prefetch href="/team">
 						<LinkHolder>Our team</LinkHolder>
 					</ActiveLink>
-				</HeaderMnuItemStd>
-				<HeaderMnuItemStd>
+				</ListItem>
+				<ListItem>
 					<ActiveLink activeClassName="active" prefetch href="/careers">
 						<LinkHolder>Careers</LinkHolder>
 					</ActiveLink>
-				</HeaderMnuItemStd>
-				<HeaderMnuItemStd>
+				</ListItem>
+				<ListItem>
 					<ActiveLink activeClassName="active" prefetch href="/contact">
 						<LinkHolder>Contact us</LinkHolder>
 					</ActiveLink>
-				</HeaderMnuItemStd>
-			</HeaderMnuStd>
-		);
+				</ListItem>
+			</List>
+		)
 	}
 }
 
-const HeaderMnuStd = styled.ul`
+export default NavHorizontal
+
+const List = styled.ul`
 	display: inline-block;
 	position: relative;
 	left: calc(13.5416666667vw - 25px);
@@ -55,7 +57,7 @@ const HeaderMnuStd = styled.ul`
 		display: none;
 	}
 `
-const HeaderMnuItemStd = styled.li`
+const ListItem = styled.li`
 	display: inline-block;
 `
 const LinkHolder = styled.a`

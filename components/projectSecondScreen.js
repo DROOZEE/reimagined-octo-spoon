@@ -1,4 +1,4 @@
-import React, {Fragment, Component} from "react"
+import React, {Component} from "react"
 import styled, {css} from 'styled-components'
 
 import {connect} from 'react-redux'
@@ -6,9 +6,12 @@ import {connect} from 'react-redux'
 class ProjectSecondScreen extends Component {
 	render() {
 		return (
-			<Fragment>
-				<RegularText>{this.props.state.setData.item ? this.props.state.setData.item.desc  : ''}</RegularText>
-			</Fragment>
+			this.props.state.setData.item ?
+			<div>
+				{this.props.state.setData.item.desc ? <RegularText>{this.props.state.setData.item.desc}</RegularText> : null}
+				{this.props.state.setData.item.secondScreenImgUrl ? <Image src={this.props.state.setData.item.secondScreenImgUrl}/> : null}
+			</div>
+			: null
 		)
 	}
 }
@@ -28,5 +31,10 @@ const RegularText = styled.p`
 
 	max-width: 600px;
 	padding: 0 0 0 0;
+	margin: 0 0 20px 0;
+`
+const Image = styled.img`
+	display: block;
+	max-width: 120px;
 	margin: 0 0 20px 0;
 `

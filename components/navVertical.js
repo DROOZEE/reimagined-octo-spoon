@@ -18,11 +18,6 @@ class NavVertical extends Component {
 			<Navigation>
 				<List>
 					<ListItem onClick={this.toggle}>
-						<ActiveLink activeClassName="active" prefetch href="/">
-							<LinkHolder>Home</LinkHolder>
-						</ActiveLink>
-					</ListItem>
-					<ListItem onClick={this.toggle}>
 						<ActiveLink activeClassName="active" prefetch href="/portfolio">
 							<LinkHolder>Portfolio</LinkHolder>
 						</ActiveLink>
@@ -67,7 +62,10 @@ export default connect(
 )(NavVertical)
 
 const Navigation = styled.nav`
-	display: block;
+	${'' /* display: none;
+	@media (max-width: 1025px) {
+		display: block;
+	} */}
 `
 const List = styled.ul`
 	margin: 0;
