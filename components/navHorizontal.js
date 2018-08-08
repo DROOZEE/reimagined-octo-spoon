@@ -7,22 +7,22 @@ class NavHorizontal extends Component {
 		return (
 			<List>
 				<ListItem>
-					<ActiveLink activeClassName="active" prefetch href="/portfolio">
+					<ActiveLink activeClassName="active" href="/portfolio">
 						<LinkHolder>Portfolio</LinkHolder>
 					</ActiveLink>
 				</ListItem>
 				<ListItem>
-					<ActiveLink activeClassName="active" prefetch href="/technologies">
+					<ActiveLink activeClassName="active" href="/technologies">
 						<LinkHolder>Technologies</LinkHolder>
 					</ActiveLink>
 				</ListItem>
 				<ListItem>
-					<ActiveLink activeClassName="active" prefetch href="/team">
+					<ActiveLink activeClassName="active" href="/team">
 						<LinkHolder>Our team</LinkHolder>
 					</ActiveLink>
 				</ListItem>
 				<ListItem>
-					<ActiveLink activeClassName="active" prefetch href="/careers">
+					<ActiveLink activeClassName="active" href="/careers">
 						<LinkHolder>Careers</LinkHolder>
 					</ActiveLink>
 				</ListItem>

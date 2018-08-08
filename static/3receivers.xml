@@ -1,0 +1,16 @@
+<Response>
+	<Terminal>
+	<Name>Receiver IDs</Name>
+	<Value>
+		<DimSize>3</DimSize>
+		<Name>ID</Name>
+		<Value>1</Value>
+
+		<Name>ID</Name>
+		<Value>122</Value>
+
+		<Name>ID</Name>
+		<Value>54</Value>
+	</Value>
+	</Terminal>
+</Response>

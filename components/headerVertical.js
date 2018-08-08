@@ -2,8 +2,9 @@ import NavVertical from './navVertical'
 import React, {Component, Fragment} from "react"
 import styled from 'styled-components'
 
-import {connect} from 'react-redux'
+import {MainCodeLogo} from './mainCodeLogo';
 
+import {connect} from 'react-redux'
 
 class HeaderVertical extends Component {
 	constructor(props) {
@@ -18,24 +19,9 @@ class HeaderVertical extends Component {
 	close() {
 		this.props.onCloseMenu();
 	}
-	shouldComponentUpdate(nextProps, nextState) {
-		// let html = document.getElementsByTagName('html');
-		// if(this.props.state.changeMenu.openedMenu === true) {
-		// 	html[0].classList.add("ovf-y_hidden")
-		// } else {
-		// 	html[0].classList.remove("ovf-y_hidden");
-		// }
-		// this.props.state.changeMenu.openedMenu === true ? html[0].classList.add("ovf-y_hidden") : html[0].classList.remove("ovf-y_hidden");
-		return true;
-	}
 	test() {
 		let html = document.getElementsByTagName('html');
 		this.props.state.changeMenu.openedMenu === true ? html[0].classList.add("ovf-y_hidden") : html[0].classList.remove("ovf-y_hidden");
-		window.addEventListener("resize", () => {
-			document.getElementsByClassName("vert-header")[0].classList.remove("active");
-			document.getElementsByClassName("vert-fader")[0].classList.remove("active");
-			html[0].classList.remove("ovf-y_hidden");
-		}, false);
 	}
 
 	componentDidUpdate() {
@@ -44,11 +30,12 @@ class HeaderVertical extends Component {
 
 	render () {
 		return (
-			<Fragment>
+			<Header data-header-vertical>
+				{/* <MainCodeLogoInHeader /> */}
 				<Button onClick={this.toggle} >TOGGLEMENU</Button>
 				<Fader onClick={this.close} className={`vert-fader ${this.props.state.changeMenu.openedMenu ? `active` : null}`} />
-				<Header className={`vert-header ${this.props.state.changeMenu.openedMenu ? `active` : null}`} ><NavVertical /></Header>
-			</Fragment>
+				<VertMnuWrap className={`vert-header ${this.props.state.changeMenu.openedMenu ? `active` : null}`} ><NavVertical /></VertMnuWrap>
+			</Header>
 		)
 	}
 }
@@ -67,10 +54,19 @@ export default connect(
 	})
 )(HeaderVertical)
 
+const Header = styled.header`
+`
+
+const MainCodeLogoInHeader = styled(MainCodeLogo)`
+	position: fixed;
+	display: block;
+	z-index: 120;
+`
+
 const Button = styled.button`
 	display: none;
 	position: fixed;
-	top: 30px;
+	top: 15px;
 	right: calc(100% - 100vw + 30px);
 	z-index: 200;
 	@media (max-width: 1024px) {
@@ -78,7 +74,7 @@ const Button = styled.button`
 	}
 `
 
-const Header = styled.header`
+const VertMnuWrap = styled.div`
 	display: none;
 	position: fixed;
 	top: 0;

@@ -4,7 +4,7 @@ import withReduxStore from '../lib/with-redux-store'
 import { Provider } from 'react-redux'
 import { injectGlobal } from 'styled-components'
 
-// import Header from '../components/header'
+import Header from '../components/header'
 
 import HeaderHorizontal from '../components/headerHorizontal'
 import HeaderVertical from '../components/headerVertical'
@@ -27,13 +27,13 @@ Router.onRouteChangeComplete = () => {
 		document.getElementsByClassName('showreel-link_close')[0].classList.add("showreel-link_active")
 		document.getElementsByClassName('lets-talk')[0].classList.add("lets-talk_hidden")
 		document.getElementsByClassName('min-lets-talk')[0].classList.add("min-lets-talk_hidden")
-		document.getElementsByClassName('header')[0].classList.add("header_hidden")
+		document.querySelectorAll("[data-header-horizontal]")[0].classList.add("header_hidden")
 	} else {
 		document.getElementsByClassName('showreel-link_open')[0].classList.add("showreel-link_active")
 		document.getElementsByClassName('showreel-link_close')[0].classList.remove("showreel-link_active")
 		document.getElementsByClassName('lets-talk')[0].classList.remove("lets-talk_hidden")
 		document.getElementsByClassName('min-lets-talk')[0].classList.remove("min-lets-talk_hidden")
-		document.getElementsByClassName('header')[0].classList.remove("header_hidden")
+		document.querySelectorAll("[data-header-horizontal]")[0].classList.remove("header_hidden")
 		if(window.location.pathname === '/contact'){
 			document.getElementsByClassName('lets-talk')[0].classList.add("lets-talk_hidden")
 			document.getElementsByClassName('min-lets-talk')[0].classList.add("min-lets-talk_hidden")
@@ -56,23 +56,60 @@ class Layout extends React.Component {
 		return (
 			<div className='page'>
 				{/* {!this.props.children.props.statusCode ? <Header /> : null} */}
-				{!this.props.children.props.statusCode ? <HeaderHorizontal /> : null}
+				{/* {!this.props.children.props.statusCode ?
+					<div className="preloader" style={{position: 'fixed', zIndex: 300, backgroundColor: '#000000', width: '100vw', height: '100vh', top: 0, left: 0}}>
+						<img src="/static/preloader.gif" alt="preloader" style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}} />
+					</div>
+				: null} */}
+				{/* {!this.props.children.props.statusCode ? <HeaderHorizontal /> : null}
 				{!this.props.children.props.statusCode ? <HeaderVertical /> : null}
 
 				{!this.props.children.props.statusCode ? <SidebarLeft /> : null}
 				{!this.props.children.props.statusCode ? <SidebarRight /> : null}
 
+
 				{children}
 
-				{!this.props.children.props.statusCode ? <Footer /> : null}
+				{!this.props.children.props.statusCode ? <Footer /> : null} */}
+
+				<HeaderHorizontal />
+				<HeaderVertical />
+				{/* <Header /> */}
+
+				<SidebarLeft />
+				<SidebarRight />
+
+
+				{children}
+
+				<Footer />
 			</div>
 		)
 	}
 }
 
 class MyApp extends App {
+	constructor(props) {
+		super(props);
+		this.state = {
+			isLoading: true,
+		}
+	}
+
+	componentDidMount() {
+		const ready = () => {
+			this.setState({ isLoading: false });
+		}
+		document.addEventListener('DOMContentLoaded', ready())
+	}
+
 	render () {
-		const {Component, pageProps, reduxStore} = this.props
+		const {Component, pageProps, reduxStore} = this.props;
+
+		if(!this.state.isLoading){
+			TweenMax.to('.preloader', 0.4, {opacity: 0, display: 'none', ease: Power0.easeInOut});
+		}
+
 		return (
 			<Container>
 				<Provider store={reduxStore}>

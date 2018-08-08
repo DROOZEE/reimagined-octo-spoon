@@ -15,31 +15,31 @@ import {connect} from 'react-redux'
 const setTop = () => window.scrollTo(0,0);
 
 class Case extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {}
-		this.set = this.set.bind(this);
-	}
-
-	set(name) {
-		const returnedCase = this.props.state.loadCaseData.find(({item}) => item.name === name);
-		this.props.onSetData(returnedCase);
-	}
-
-	static async getInitialProps(context) {
-		const { name } = context.query
-
-		return { name }
-	}
-
-	componentDidMount() {
-		this.set(this.props.name);
-	}
+	// constructor(props) {
+	// 	super(props);
+	// 	this.state = {}
+	// 	this.set = this.set.bind(this);
+	// }
+	//
+	// set(name) {
+	// 	const returnedCase = this.props.state.loadCaseData.find(({item}) => item.name === name);
+	// 	this.props.onSetData(returnedCase);
+	// }
+	//
+	// static async getInitialProps(context) {
+	// 	const { name } = context.query
+	//
+	// 	return { name }
+	// }
+	//
+	// componentDidMount() {
+	// 	this.set(this.props.name);
+	// }
 
 	render() {
 		return (
-			<Fragment>
-				<Head title={this.props.state.setData.item ? this.props.state.setData.item.title : ""}
+			<div>
+				{/* <Head title={this.props.state.setData.item ? this.props.state.setData.item.title : ""}
 					description={this.props.state.setData.item ? this.props.state.setData.item.desc : ""}
 				/>
 				{this.props.state.setData.item ?
@@ -72,8 +72,8 @@ class Case extends Component {
 						</Link>
 					</div>
 				</Main>
-				: null}
-			</Fragment>
+				: null} */}
+			</div>
 		)
 
 	}
@@ -84,12 +84,12 @@ export default connect(
 		state
 	}),
 	dispatch => ({
-		onGetCaseData: (data) => {
-			dispatch({type: 'GETDATA', payload: data});
-		},
-		onSetData: (data) => {
-			dispatch({type: 'SETDATA', payload: data});
-		}
+		// onGetCaseData: (data) => {
+		// 	dispatch({type: 'GETDATA', payload: data});
+		// },
+		// onSetData: (data) => {
+		// 	dispatch({type: 'SETDATA', payload: data});
+		// }
 	})
 )(Case)
 

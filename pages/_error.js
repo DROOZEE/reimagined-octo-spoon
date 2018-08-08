@@ -28,6 +28,8 @@ class Error extends Component {
 						url="../static/music/shittyfluted.mp3"
 						playStatus={Sound.status.PLAYING}
 						playFromPosition={2000}
+						volume={5}
+						autoLoad={true}
 					/> */}
 
 				</ErrorWrap>

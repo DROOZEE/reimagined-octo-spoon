@@ -16,34 +16,18 @@ export class ShowreelLink extends Component {
 	}
 
 	componentDidMount() {
-		function rem() {
-			if(window.innerWidth <= 1400) {
-				document.getElementsByClassName('showreel-link__text_open')[0].innerText = "";
-				document.getElementsByClassName('showreel-link__text_close')[0].innerText = "";
-			} else {
-				document.getElementsByClassName('showreel-link__text_open')[0].innerText = "Showreel";
-				document.getElementsByClassName('showreel-link__text_close')[0].innerText = "Close showreel";
-			}
-		}
-
-		rem();
-
-		window.onresize = function(){
-			rem();
-		}
-
 		if(window.location.pathname === '/showreel'){
 			document.getElementsByClassName('showreel-link_open')[0].classList.remove("showreel-link_active")
 			document.getElementsByClassName('showreel-link_close')[0].classList.add("showreel-link_active")
 			document.getElementsByClassName('lets-talk')[0].classList.add("lets-talk_hidden")
 			document.getElementsByClassName('min-lets-talk')[0].classList.add("min-lets-talk_hidden")
-			document.getElementsByClassName('header')[0].classList.add("header_hidden")
+			document.querySelectorAll("[data-header-horizontal]")[0].classList.add("header_hidden")
 		} else {
 			document.getElementsByClassName('showreel-link_open')[0].classList.add("showreel-link_active")
 			document.getElementsByClassName('showreel-link_close')[0].classList.remove("showreel-link_active")
 			document.getElementsByClassName('lets-talk')[0].classList.remove("lets-talk_hidden")
 			document.getElementsByClassName('min-lets-talk')[0].classList.remove("min-lets-talk_hidden")
-			document.getElementsByClassName('header')[0].classList.remove("header_hidden")
+			document.querySelectorAll("[data-header-horizontal]")[0].classList.remove("header_hidden")
 			if(window.location.pathname === '/contact'){
 				document.getElementsByClassName('lets-talk')[0].classList.add("lets-talk_hidden")
 				document.getElementsByClassName('min-lets-talk')[0].classList.add("min-lets-talk_hidden")
@@ -134,11 +118,5 @@ const ShowreelIconStd = styled.i`
 	}
 	@media (max-width: 1400px) {
 		height: 60px;
-		&.maincode-play {
-			margin-right: 0px;
-		}
-		&.maincode-close {
-			margin-left: 0px;
-		}
 	}
 `

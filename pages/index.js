@@ -1,10 +1,10 @@
 import React, {Fragment, Component} from "react"
 import styled, {css} from 'styled-components'
 import { CSSTransitionGroup } from 'react-transition-group'
-import Link from 'next/link';
+import Link from 'next/link'
 
 import Head from '../components/head'
-import FooterFaces from "../components/footerFaces";
+import FooterFaces from "../components/footerFaces"
 import RegularCenterer from '../components/regularCenterer'
 import SectionFirstScreen from '../components/sectionFirstScreen'
 import SectionHeads from '../components/sectionHeads'
@@ -83,6 +83,7 @@ const TextWrapLast = styled.div`
 		padding: 110px 0 0 0;
 	}
 `
+
 const TextWrapText = styled.h3`
 	font-family: "AvantGardeLT", sans-serif;
 	-webkit-font-smoothing: antialiased;
@@ -110,7 +111,7 @@ const TextWrapLink = styled.a`
 		content: '';
 		position: absolute;
 		bottom: 2px;
-		left: 0px;
+		left: 0;
 		background-color: #ffffff;
 		height: 2px;
 		width: 100%;

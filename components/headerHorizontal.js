@@ -9,13 +9,13 @@ class HeaderHorizontal extends Component {
 			let currentScrollTop = window.pageYOffset;
 
 				if(currentScrollTop <= 0) {
-					document.getElementsByClassName('header')[0].classList.remove("scrolled")
+					document.querySelectorAll("[data-header-horizontal]")[0].classList.remove("scrolled")
 				}
 
 				else if (currentScrollTop > lastScrollTop){
-					document.getElementsByClassName('header')[0].classList.add("scrolled")
+					document.querySelectorAll("[data-header-horizontal]")[0].classList.add("scrolled")
 				} else {
-					document.getElementsByClassName('header')[0].classList.remove("scrolled")
+					document.querySelectorAll("[data-header-horizontal]")[0].classList.remove("scrolled")
 				}
 			lastScrollTop = currentScrollTop;
 		}, false);
@@ -23,11 +23,9 @@ class HeaderHorizontal extends Component {
 
 	render() {
 		return (
-			<Fragment>
-				<HeaderStd className="header">
-					<NavHorizontal />
-				</HeaderStd>
-			</Fragment>
+			<HeaderStd data-header-horizontal>
+				<NavHorizontal />
+			</HeaderStd>
 		)
 	}
 }

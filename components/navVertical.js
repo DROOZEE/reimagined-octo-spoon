@@ -18,28 +18,33 @@ class NavVertical extends Component {
 			<Navigation>
 				<List>
 					<ListItem onClick={this.toggle}>
-						<ActiveLink activeClassName="active" prefetch href="/portfolio">
+						<ActiveLink activeClassName="active" href="/portfolio">
 							<LinkHolder>Portfolio</LinkHolder>
 						</ActiveLink>
 					</ListItem>
 					<ListItem onClick={this.toggle}>
-						<ActiveLink activeClassName="active" prefetch href="/technologies">
+						<ActiveLink activeClassName="active" href="/technologies">
 							<LinkHolder>Technologies</LinkHolder>
 						</ActiveLink>
 					</ListItem>
 					<ListItem onClick={this.toggle}>
-						<ActiveLink activeClassName="active" prefetch href="/team">
+						<ActiveLink activeClassName="active" href="/team">
 							<LinkHolder>Our team</LinkHolder>
 						</ActiveLink>
 					</ListItem>
 					<ListItem onClick={this.toggle}>
-						<ActiveLink activeClassName="active" prefetch href="/careers">
+						<ActiveLink activeClassName="active" href="/careers">
 							<LinkHolder>Careers</LinkHolder>
 						</ActiveLink>
 					</ListItem>
 					<ListItem onClick={this.toggle}>
 						<ActiveLink activeClassName="active" prefetch href="/contact">
 							<LinkHolder>Contact us</LinkHolder>
+						</ActiveLink>
+					</ListItem>
+					<ListItem onClick={this.toggle}>
+						<ActiveLink activeClassName="active" href="/showreel">
+							<LinkHolder>Showreel</LinkHolder>
 						</ActiveLink>
 					</ListItem>
 				</List>
@@ -62,10 +67,6 @@ export default connect(
 )(NavVertical)
 
 const Navigation = styled.nav`
-	${'' /* display: none;
-	@media (max-width: 1025px) {
-		display: block;
-	} */}
 `
 const List = styled.ul`
 	margin: 0;

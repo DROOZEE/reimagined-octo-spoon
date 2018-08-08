@@ -25,6 +25,9 @@ const MainLogoWrap = styled.div`
 	@media (max-width: 1400px) {
 		display: none;
 	}
+	@media (max-width: 768px) {
+		display: block;
+	}
 `;
 
 const LinkHolder = styled.a`
@@ -47,9 +50,12 @@ const LinkHolder = styled.a`
 
 const MainLogoSvg = styled.svg`
 	position: relative;
-	top: 2px;
+	top: 3px;
+	@media (max-width: 1500px) {
+		top: 2px;
+	}
 	@media (max-width: 768px) {
-		top: 1px;
+		top: 2px;
 	}
 `;
 

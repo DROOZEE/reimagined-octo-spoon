@@ -5,6 +5,8 @@ import createDecorator from 'final-form-focus'
 import styled, { css } from 'styled-components';
 import ReCAPTCHA from "react-google-recaptcha";
 
+import RegularCenterer from '../components/regularCenterer'
+
 const focusOnErrors = createDecorator()
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -58,115 +60,124 @@ class SectionContact extends Component {
 
 	render() {
 		return (
-			<Form
-				ref={this.myRef}
-				onSubmit={onSubmit}
-				decorators={[ focusOnErrors ]}
-				render={({ handleSubmit, form, submitting, pristine, values }) => (
-					<FormStd className="contact-form" onSubmit={handleSubmit}>
-						<RegularRow emailandloc>
-							<LinkToCommunicate href="mailto:pm@maincode.agency" rel="noopener noreferrer">email:<RegularText emailandloc>pm@maincode.agency</RegularText></LinkToCommunicate>
-							<LinkToCommunicate href="https://www.google.com.ua/maps/place/Капиталист/@50.0258501,36.219044,17z/data=!4m5!3m4!1s0x4127a135cd14df0d:0xf787c457ae02fb40!8m2!3d50.0265245!4d36.2202508" target="_blanck" rel="noopener noreferrer">location:<RegularText emailandloc>61072, Ukraine, Kharkiv, 27B Nauky ave.</RegularText></LinkToCommunicate>
-						</RegularRow>
+			<SectionStd>
+				<RegularCenterer>
+					<RegularTitle>Nice to meet you! <br/>We are glad to help you!</RegularTitle>
+					<Form
+						ref={this.myRef}
+						onSubmit={onSubmit}
+						decorators={[ focusOnErrors ]}
+						render={({ handleSubmit, form, submitting, pristine, values }) => (
+							<FormStd className="contact-form" onSubmit={handleSubmit}>
+								<RegularRow emailandloc>
+									<LinkToCommunicate href="mailto:pm@maincode.agency" rel="noopener noreferrer">email:<RegularText emailandloc>pm@maincode.agency</RegularText></LinkToCommunicate>
+									<LinkToCommunicate href="https://www.google.com.ua/maps/place/Капиталист/@50.0258501,36.219044,17z/data=!4m5!3m4!1s0x4127a135cd14df0d:0xf787c457ae02fb40!8m2!3d50.0265245!4d36.2202508" target="_blanck" rel="noopener noreferrer">location:<RegularText emailandloc>61072, Ukraine, Kharkiv, 27B Nauky ave.</RegularText></LinkToCommunicate>
+								</RegularRow>
 
-						<RegularRow className="contact-form__row">
-							<FormGroup className="contact-form__form-group">
-								<LabelStd className="contact-form__label" htmlFor="name">Name*</LabelStd>
-								<Field name="name" className="contact-form__input req" validate={required}>
-									{({ input, meta }) => (
+								<RegularRow className="contact-form__row">
+									<FormGroup className="contact-form__form-group">
+										<LabelStd className="contact-form__label" htmlFor="name">Name*</LabelStd>
+										<Field name="name" className="contact-form__input req" validate={required}>
+											{({ input, meta }) => (
+												<FieldsetStd className="contact-form__fieldset">
+													<InputStd {...input}
+														id="name"
+														autoComplete="off"
+														component="input"
+														type="text"
+														placeholder="Your name"
+														className={meta.error && meta.touched && meta.error}/>
+												</FieldsetStd>
+											)}
+										</Field>
+									</FormGroup>
+
+									<FormGroup className="contact-form__form-group">
+										<LabelStd className="contact-form__label" htmlFor="email">Email*</LabelStd>
+										<Field name="email" className="contact-form__input req" validate={requiredEmail}>
+											{({ input, meta }) => (
+												<FieldsetStd className="contact-form__fieldset">
+													<InputStd {...input}
+														id="email"
+														autoComplete="off"
+														component="input"
+														type="text"
+														placeholder="Your email"
+														className={meta.error && meta.touched && meta.error}/>
+												</FieldsetStd>
+											)}
+										</Field>
+									</FormGroup>
+
+								</RegularRow>
+
+								<RegularRow className="contact-form__row">
+									<FormGroup className="contact-form__form-group">
+										<LabelStd className="contact-form__label" htmlFor="phone">Phone</LabelStd>
+
+
+											<Field name="phone" className="contact-form__input req">
+												{({ input}) => (
+													<FieldsetStd className="contact-form__fieldset">
+														<InputStd {...input}
+															id="phone"
+															autoComplete="off"
+															component="input"
+															type="text"
+															placeholder="Your phone number"/>
+													</FieldsetStd>
+												)}
+											</Field>
+									</FormGroup>
+
+									<FormGroup className="contact-form__form-group">
+										<LabelStd className="contact-form__label" htmlFor="file">Attach file<RegularText upload className="up-to">(up to 25MB)</RegularText></LabelStd>
+
 										<FieldsetStd className="contact-form__fieldset">
-											<InputStd {...input}
-												id="name"
-												autoComplete="off"
-												component="input"
-												type="text"
-												placeholder="Your name"
-												className={meta.error && meta.touched && meta.error}/>
+											<Label htmlFor="file"><FormIconStd upload className="contact-form__icon maincode-paperclip"></FormIconStd></Label>
+
+											<UploadStdStyled className="contact-form__upload" id="file" type="file" name="file"/>
+											<UploadFieldStyled className="contact-form__upload-field" htmlFor="file"></UploadFieldStyled>
+											<FormIconStd remove className="contact-form__icon maincode-close"></FormIconStd>
 										</FieldsetStd>
-									)}
-								</Field>
-							</FormGroup>
+									</FormGroup>
+								</RegularRow>
 
-							<FormGroup className="contact-form__form-group">
-								<LabelStd className="contact-form__label" htmlFor="email">Email*</LabelStd>
-								<Field name="email" className="contact-form__input req" validate={requiredEmail}>
-									{({ input, meta }) => (
-										<FieldsetStd className="contact-form__fieldset">
-											<InputStd {...input}
-												id="email"
-												autoComplete="off"
-												component="input"
-												type="text"
-												placeholder="Your email"
-												className={meta.error && meta.touched && meta.error}/>
-										</FieldsetStd>
-									)}
-								</Field>
-							</FormGroup>
-
-						</RegularRow>
-
-						<RegularRow className="contact-form__row">
-							<FormGroup className="contact-form__form-group">
-								<LabelStd className="contact-form__label" htmlFor="phone">Phone</LabelStd>
+								<RegularRow className="contact-form__row">
+									<FormGroup textarea className="contact-form__form-group">
+										<LabelStd className="contact-form__label" htmlFor="message">Message*</LabelStd>
 
 
-									<Field name="phone" className="contact-form__input req">
-										{({ input}) => (
-											<FieldsetStd className="contact-form__fieldset">
-												<InputStd {...input}
-													id="phone"
-													autoComplete="off"
-													component="input"
-													type="text"
-													placeholder="Your phone number"/>
-											</FieldsetStd>
-										)}
-									</Field>
-							</FormGroup>
+											<Field name="message" className="contact-form__textarea req" validate={required}>
+												{({ input, meta }) => (
+													<FieldsetStd textarea className="contact-form__fieldset">
+														<TextareaStd {...input}
+															id="message"
+															placeholder="Describe your project or tell us how you are doing"
+															component="textarea"
+															className={meta.error && meta.touched && meta.error}/>
+													</FieldsetStd>
+												)}
+											</Field>
+									</FormGroup>
+								</RegularRow>
+								<Recaptcha id="captch-cont1"></Recaptcha>
 
-							<FormGroup className="contact-form__form-group">
-								<LabelStd className="contact-form__label" htmlFor="file">Attach file<RegularText upload className="up-to">(up to 25MB)</RegularText></LabelStd>
-
-								<FieldsetStd className="contact-form__fieldset">
-									<Label htmlFor="file"><FormIconStd upload className="contact-form__icon maincode-paperclip"></FormIconStd></Label>
-
-									<UploadStdStyled className="contact-form__upload" id="file" type="file" name="file"/>
-									<UploadFieldStyled className="contact-form__upload-field" htmlFor="file"></UploadFieldStyled>
-									<FormIconStd remove className="contact-form__icon maincode-close"></FormIconStd>
-								</FieldsetStd>
-							</FormGroup>
-						</RegularRow>
-
-						<RegularRow className="contact-form__row">
-							<FormGroup textarea className="contact-form__form-group">
-								<LabelStd className="contact-form__label" htmlFor="message">Message*</LabelStd>
-
-
-									<Field name="message" className="contact-form__textarea req" validate={required}>
-										{({ input, meta }) => (
-											<FieldsetStd textarea className="contact-form__fieldset">
-												<TextareaStd {...input}
-													id="message"
-													placeholder="Describe your project or tell us how you are doing"
-													component="textarea"
-													className={meta.error && meta.touched && meta.error}/>
-											</FieldsetStd>
-										)}
-									</Field>
-							</FormGroup>
-						</RegularRow>
-						<Recaptcha id="captch-cont1"></Recaptcha>
-
-						<BtnStd type="submit" className="contact-form__btn" disabled={submitting}>Send request</BtnStd>
-					</FormStd>
-				)}
-			/>
+								<BtnStd type="submit" className="contact-form__btn" disabled={submitting}>Send request</BtnStd>
+							</FormStd>
+						)}
+					/>
+				</RegularCenterer>
+			</SectionStd>
 		)
 	}
 }
 
 export default SectionContact
+
+const SectionStd = styled.section`
+
+`
 
 const StyledReCAPTCHA = styled(ReCAPTCHA)`
 	transform-origin: 0% 0%;
@@ -203,7 +214,6 @@ const RegularText = styled.p`
 	display: block;
 	color: #ffffff;
 	margin-bottom: 55px;
-
 	${props => props.emailandloc && css`
 		margin-bottom: 0px;
 		padding-left: 5px;
@@ -458,5 +468,18 @@ const RegularRow = styled.div`
 	@media (max-width: 992px) {
 		flex-direction: column;
 		margin-bottom: 0px;
+	}
+`
+
+const RegularTitle = styled.h1`
+	font-family: "AvantGardeLT", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-size: 36px;
+	color: #ffffff;
+	margin-top: 55px;
+	margin-bottom: 40px;
+	@media (max-width: 992px) {
+		font-size: 24px;
+		margin-top: 0px;
 	}
 `
